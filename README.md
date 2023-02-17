@@ -9,3 +9,5 @@
 5. Select `Blue Potion`
 
 Further instructions will not be provided
+
+![Screenshot](./images/screenshot.png)
