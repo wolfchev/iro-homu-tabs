@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CheatTable CheatEngineTableVersion="42">
+  <CheatEntries/>
+  <UserdefinedSymbols/>
+  <LuaScript>function debugger_onBreakpoint()
+    ms = createMemScan()
+    fl = createFoundList(ms)
+
+    debug_continueFromBreakpoint(co_run)
+
+    ms.FirstScan(soExactValue, vtGrouped, rtRounded, "4:505 4:504 4:501 4:503 4:605 4:606", "", 0, 0x00007fffffffffff, "", fsmNotAligned, "1", false, false, false, false)
+    ms.waitTillDone(); fl.initialize()
+
+    -- Change Blue Potion to Homunculus Tablet
+    if fl.Count ~= 0 then
+        for i=0, fl.Count-1 do
+            writeInteger(fl.Address[i], 100371)
+        end
+    end
+
+    fl.destroy()
+    ms.destroy()
+    return 1
+ end
+
+ openProcess("Ragexe.exe")
+ debugProcess()
+ debug_setBreakpoint(0x009AC00A)
+</LuaScript>
+</CheatTable>
